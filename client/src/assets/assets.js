@@ -7,8 +7,10 @@ import profile from './profile.png'
 
 
 
+
 export const assets = {
     logo,
+   
    
     marvelLogo,
     googlePlay,
