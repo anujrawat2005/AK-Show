@@ -36,7 +36,7 @@ export const  updateFavorite = async(req,res)=>{
 
             
         }
-        if(user.privateMetadata.favorites.includes(movieId)){
+        if(!user.privateMetadata.favorites.includes(movieId)){
             user.privateMetadata.favorites.push(movieId)
         }
         else{
@@ -61,9 +61,9 @@ export const getFavorites = async(req,res)=>{
         const favorites = user.privateMetadata.favorites;
 
         //Getting movies from database
-        const movies = await Movie.find({_id:{$in:favorites}})
+        const movies = await Movie.find({_id: {$in:favorites}})
 
-        res.json({success:true,favorites:movies})
+        res.json({success:true,movies})
 
         
     } catch (error) {

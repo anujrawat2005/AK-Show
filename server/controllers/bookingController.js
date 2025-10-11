@@ -33,7 +33,7 @@ export const createBooking = async(req,res)=>{
         const isAvailable = await checkSeatsAvailability(showId,selectedSeats);
 
         if(!isAvailable){
-            return res.json({success:false,message:"Selected seats are not available."})
+            return res.json({success:false,message:"Selected Seats are not available."})
         }
         
         //Get show details
@@ -68,7 +68,7 @@ export const createBooking = async(req,res)=>{
                 product_data:{
                     name:showData.movie.title
                 },
-                unit_amount:Math.floor(booking.amount) * 100
+                unit_amount: Math.floor(booking.amount) * 100
             },
             quantity:1
 
@@ -82,7 +82,7 @@ export const createBooking = async(req,res)=>{
             metadata:{
                 bookingId: booking._id.toString()
             },
-            expires_at:Math.floor(Date.now() /1000) + 30 * 60 , //Expires in 30 minutes
+            expires_at: Math.floor(Date.now() /1000) + 30 * 60 , //Expires in 30 minutes
 
         })
         booking.paymentLink = session.url

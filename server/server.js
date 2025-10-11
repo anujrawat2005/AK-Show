@@ -20,7 +20,7 @@ await connectDB()
 
 //Stripe webhooks route
 
-app.use('/api/stripe',express.raw({type:'application/json'}),stripeWebhooks)
+app.use('/api/stripe',express.raw({type:'application/json'}), stripeWebhooks)
  
 //MiddleWare
 app.use(express.json())
